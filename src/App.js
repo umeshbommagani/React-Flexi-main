@@ -1,5 +1,7 @@
 import React from 'react';
+import { Routes, Route, useParams } from 'react-router-dom';
 import BlogPostList from './BlogPostList';
+import BlogPostDetail from './BlogPostDetail';
 
 const samplePosts = [
   {
@@ -28,8 +30,32 @@ const samplePosts = [
 const App = () => (
   <div>
     <h1>Blog Posts</h1>
-    <BlogPostList posts={samplePosts} />
+    <Routes>
+      <Route path="/" element={<BlogPostList posts={samplePosts} />} />
+      <Route
+        path="/posts/:id"
+        element={<BlogPostDetailWrapper posts={samplePosts} />}
+      />
+    </Routes>
   </div>
 );
+
+const BlogPostDetailWrapper = ({ posts }) => {
+  const { id } = useParams();
+  const post = posts.find((p) => p.id === id);
+
+  if (!post) {
+    return <p>Post not found.</p>;
+  }
+
+  return (
+    <BlogPostDetail
+      title={post.title}
+      content={post.summary} // Replace with full content if available
+      author="Author Name" // Replace with actual author if available
+      date={post.date}
+    />
+  );
+};
 
 export default App;
