@@ -1,0 +1,130 @@
+.blogPostForm {
+  font-family: 'Arial', 'Roboto', sans-serif;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.formGroup {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.formGroup label {
+  flex: 0 0 180px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #333333;
+  padding-top: 6px;
+}
+
+.formGroup input,
+.formGroup textarea {
+  flex: 1;
+  font-size: 16px;
+  color: #333333;
+  border: 1px solid #CCCCCC;
+  border-radius: 4px;
+  padding: 8px 10px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fafafa;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 0 2px rgba(0,123,255,0.15);
+}
+
+.error {
+  color: #FF0000;
+  font-size: 14px;
+  margin-top: 4px;
+  margin-left: 190px;
+}
+
+.buttonRow {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.submitButton {
+  background: #007BFF;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 28px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.submitButton:disabled,
+.submitButton[aria-busy="true"] {
+  background: #6cb2ff;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1200px) {
+  .blogPostForm {
+    max-width: 95vw;
+    padding: 16px;
+  }
+  .formGroup label {
+    flex-basis: 120px;
+    margin-right: 8px;
+    font-size: 15px;
+  }
+  .error {
+    margin-left: 130px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogPostForm {
+    max-width: 100vw;
+    padding: 10px;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .formGroup {
+    flex-direction: column;
+    align-items: stretch;
+    margin-bottom: 15px;
+  }
+  .formGroup label {
+    text-align: left;
+    margin-right: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    padding-top: 0;
+  }
+  .formGroup input,
+  .formGroup textarea {
+    font-size: 14px;
+    padding: 7px 8px;
+  }
+  .error {
+    margin-left: 0;
+    font-size: 12px;
+  }
+  .buttonRow {
+    justify-content: stretch;
+    margin-top: 15px;
+  }
+  .submitButton {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+}
